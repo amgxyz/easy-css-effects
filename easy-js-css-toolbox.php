@@ -8,7 +8,7 @@
 * Author URI: http://andrewmgunn.com
 * Text Domain: easy-scroll-depth
 * License: GPL2
-****
+*********
 */
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
