@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 * Constants
 */
 define( 'ECE_NAME', 'Easy CSS Effects' );
-//define( 'ECE_BASENAME', plugin_basename(__FILE__) );
+define( 'ECE_BASENAME', plugin_basename(__FILE__) );
 define( 'ECE_URL', plugins_url( __FILE__ ) );
 define( 'ECE_DIR', plugins_url( __DIR__ ));
 define( 'ECE_CLASS', __CLASS__ );
@@ -25,7 +25,6 @@ define( 'ECE_TEXT_DOMAIN', 'easy-css-effects' );
 define( 'ECE_SETTINGS', 'ece_settings' );
 define( 'ECE_MENU', 'easy-css-effects' );
 define( 'ECE_AMG', 'http://andrewgunn.xyz' );
-define( 'ECE_INIT', 'ece_settings[init]' );
 define( 'ECE_JS', 'inc/js/' );
 define( 'ECE_CSS', 'inc/css/' );
 
@@ -51,6 +50,7 @@ class ECE_Toolbox {
 		include_once('classes/class-ece-cpt.php');
 		include_once('classes/class-ece-scripts.php');
 		include_once('classes/class-ece-reset.php');
+		include_once('classes/class-ece-shortcodes.php');
 
 		register_activation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ));
 		register_deactivation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ) );

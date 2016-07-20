@@ -223,13 +223,58 @@ class ECE_Settings {
                                 Link Targetting
                             </th>
                             <td>
-                                <fieldset><?php $key = 'enable_seo_links'; ?>
+                                <fieldset><?php $key = 'disable_flexslider'; ?>
                                     <label for="ece_settings[<?php echo $key; ?>]">
                                         <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
                                         Open external links in new tab.
                                     </label>
                                 </fieldset>
-                                <fieldset><?php $key = 'enable_pdf_ext'; ?>
+                                <fieldset><?php $key = 'disable_fontawesome'; ?>
+                                    
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open internal PDFs in a new tab.
+                                    </label>
+
+                                </fieldset>
+                            
+                                <fieldset><?php $key = 'disable_scrolldepth'; ?>
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open external links in new tab.
+                                    </label>
+                                </fieldset>
+                                <fieldset><?php $key = 'disable_fontawesome'; ?>
+                                    
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open internal PDFs in a new tab.
+                                    </label>
+
+                                </fieldset>
+                            
+                                <fieldset><?php $key = 'disable_flexslider'; ?>
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open external links in new tab.
+                                    </label>
+                                </fieldset>
+                                <fieldset><?php $key = 'disable_fontawesome'; ?>
+                                    
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open internal PDFs in a new tab.
+                                    </label>
+
+                                </fieldset>
+                            
+                                <fieldset><?php $key = 'disable_flexslider'; ?>
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
+                                        Open external links in new tab.
+                                    </label>
+                                </fieldset>
+                                <fieldset><?php $key = 'disable_fontawesome'; ?>
                                     
                                     <label for="ece_settings[<?php echo $key; ?>]">
                                         <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
