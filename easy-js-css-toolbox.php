@@ -12,8 +12,11 @@
 */
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
+/**
+* Constants
+*/
 define( 'ECE_NAME', 'Easy CSS Effects' );
-define( 'ECE_BASENAME', plugin_basename(__FILE__) );
+//define( 'ECE_BASENAME', plugin_basename(__FILE__) );
 define( 'ECE_URL', plugins_url( __FILE__ ) );
 define( 'ECE_DIR', plugins_url( __DIR__ ));
 define( 'ECE_CLASS', __CLASS__ );
@@ -25,12 +28,13 @@ define( 'ECE_AMG', 'http://andrewgunn.xyz' );
 define( 'ECE_INIT', 'ece_settings[init]' );
 define( 'ECE_JS', 'inc/js/' );
 define( 'ECE_CSS', 'inc/css/' );
+
+interface I_ECE_Toolbox {
+
+}
 /**
 * Classes and interfaces
 */
-
-
-
 class ECE_Toolbox {
 
 
@@ -41,13 +45,13 @@ class ECE_Toolbox {
 	public function __construct() {
 		global $poop;
 		$poop = 'hoop';
+
+		//include_once('abstract/interface-ece.php');
 		include_once('classes/class-ece-data.php');
 		include_once('classes/class-ece-settings.php');
 		include_once('classes/class-ece-cpt.php');
 		include_once('classes/class-ece-scripts.php');
 		include_once('classes/class-ece-reset.php');
-
-		include_once('abstract/abstract-ece.php');
 
 		register_activation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ));
 		register_deactivation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ) );
@@ -67,7 +71,6 @@ class ECE_Toolbox {
 		$this->ece_settings = get_option( ECE_SETTINGS );
 		$this->ece_init = $this->ece_settings['init'];
 
-		i
 	}
 	 public function ece_init() {
 		global $poop;

@@ -1,11 +1,17 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
+
+interface I_ECE_Post_Type {
+
+}
+
 class ECE_Post_Type {
     /*
     * Custom Post Type for GeoPost
     */
     public function __construct() {
+
         $this->register_cpt_ece_pro();
         $this->register_txn_ece_pro();
     }
