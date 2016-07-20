@@ -1,12 +1,12 @@
 <?php
 /*
-* Plugin Name: SEO Image Toolbox
-* Plugin URI: http://andrewmgunn.com/
-* Description: Improve your site's SEO with the best solution for completely Search Engine Optimizing images and dynamically fixing HTML validation errors.
-* Version: 3.2.2
+* Plugin Name: Easy Flexslider
+* Plugin URI: http://andrewgunn.xyz
+* Description: Easy Flexslider
+* Version: 1.0
 * Author: Andrew M. Gunn
 * Author URI: http://andrewmgunn.com
-* Text Domain: seo-image-alt-tags
+* Text Domain: easy-flexslider
 * License: GPL2
 *
 */
