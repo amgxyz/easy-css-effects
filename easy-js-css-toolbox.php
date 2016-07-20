@@ -46,8 +46,12 @@ class Easy_CSS_Effects {
 		add_action( 'init', array( $this, 'ece_init' ) );
 		add_action( 'admin_init', array( $this, 'ece_admin_init' ) );
 		add_action( 'init', array( $this, 'ece_register_cpt' ) );
+
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_flexslider' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_fontawesome' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_scrolldepth' ) );
 		/*add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );*/
@@ -112,68 +116,59 @@ class Easy_CSS_Effects {
 	}
 
 	public function ece_register_includes() {
+		wp_register_script( 'admin_ece_js', plugins_url( ECE_JS . 'admin_ece.js', __FILE__ ), array('jquery'));
+		wp_register_script( 'admin_ece_min_js', plugins_url( ECE_JS . 'admin_ece.min.js', __FILE__ ), array('jquery'));
 		wp_register_script( 'ece_js', plugins_url( ECE_JS . 'ece.js', __FILE__ ), array('jquery'));
 		wp_register_script( 'ece_min_js', plugins_url( ECE_JS . 'ece.min.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
+	    
+	    wp_register_style( 'admin_ece_css', plugins_url( ECE_CSS . 'admin_ece.css', __FILE__ ));
+	    wp_register_style( 'admin_ece_css_min', plugins_url( ECE_CSS . 'admin_ece.min.css', __FILE__ ));
 	    wp_register_style( 'ece_css', plugins_url( ECE_CSS . 'ece.css', __FILE__ ));
-	    wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));	    
 	    wp_register_style( 'ece_css_min', plugins_url( ECE_CSS . 'ece.min.css', __FILE__ ));
+	    wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));	    
 	    wp_register_style( 'ece_effects_min', plugins_url( ECE_CSS . 'ece_effects.min.css', __FILE__ ));
-	    //wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));
+	    
+	    wp_enqueue_script( 'admin_ece_js' );
+	    wp_enqueue_script( 'admin_ece_min_js' );
 	    wp_enqueue_script( 'ece_js' );
-	    //wp_enqueue_script( 'ece_min_js' );
+	    wp_enqueue_script( 'ece_min_js' );
+	   
+	    wp_enqueue_style( 'admin_ece_css' );
+		wp_enqueue_style( 'admin_ece_css_min' );
 		wp_enqueue_style( 'ece_css' );
-		wp_enqueue_style( 'ece_effects_css' );		
-		//wp_enqueue_style( 'ece_css_min' );
-		//wp_enqueue_style( 'ece_effects_min' );
+		wp_enqueue_style( 'ece_css_min' );
+		wp_enqueue_style( 'ece_effects_css' );
+		wp_enqueue_style( 'ece_effects_min' );		
 	}
 	public function ece_register_flexslider() {
 		wp_register_script( 'flexslider_js', plugins_url(  'inc/flexslider/jquery.flexslider.js', __FILE__ ), array('jquery'));
 		wp_register_script( 'flexslider_min_js', plugins_url( 'inc/flexslider/jquery.flexslider-min.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
 	    wp_register_style( 'flexslider_css', plugins_url( 'inc/flexslider/flexslider.css', __FILE__ ));
-	    //wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));	    
-	    //wp_register_style( 'flexslider_css_min', plugins_url( ECE_CSS . 'flexslider/flexslider.min.css', __FILE__ ));
-	    //wp_register_style( 'ece_effects_min', plugins_url( ECE_CSS . 'ece_effects.min.css', __FILE__ ));
-	    //wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));
+	    wp_register_style( 'flexslider_min_css', plugins_url( 'inc/flexslider/flexslider.min.css', __FILE__ ));
+	    wp_register_style( 'flexslider_less', plugins_url( 'inc/flexslider/flexslider.less', __FILE__ ));
+	    
 	    wp_enqueue_script( 'flexslider_js' );
 	    wp_enqueue_script( 'flexslider_min_js' );
-	    //wp_enqueue_script( 'ece_min_js' );
-		//wp_enqueue_style( 'ece_css' );
+		
 		wp_enqueue_style( 'flexslider_css' );		
-		//wp_enqueue_style( 'ece_css_min' );
-		//wp_enqueue_style( 'ece_effects_min' );
+		wp_enqueue_style( 'flexslider_min_css' );		
+		wp_enqueue_style( 'flexslider_less' );		
 	}
 	public function ece_register_fontawesome() {
-		
 		wp_register_style( 'fontawesome_scss', plugins_url( 'inc/fontawesome/scss/font-awesome.scss', __FILE__ ));
 	    wp_register_style( 'fontawesome_css', plugins_url( 'inc/fontawesome/css/font-awesome.css', __FILE__ ));
 	    wp_register_style( 'fontawesome_min_css', plugins_url( 'inc/fontawesome/css/font-awesome.min.css', __FILE__ ));
-	   
-	   
+		
 		wp_enqueue_style( 'fontawesome_scss' );
 		wp_enqueue_style( 'fontawesome_css' );		
 		wp_enqueue_style( 'fontawesome_min_css' );
-		//wp_enqueue_style( 'ece_effects_min' );
 	}
 	public function ece_register_scrolldepth() {
-		wp_register_script( 'ece_js', plugins_url( ECE_JS . 'ece.js', __FILE__ ), array('jquery'));
-		wp_register_script( 'ece_min_js', plugins_url( ECE_JS . 'ece.min.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
-		//wp_register_script( 'admin_trail_story_js', plugins_url( 'inc/admin-trail-story.js', __FILE__ ), array('jquery'));
-	    wp_register_style( 'ece_css', plugins_url( ECE_CSS . 'ece.css', __FILE__ ));
-	    wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));	    
-	    wp_register_style( 'ece_css_min', plugins_url( ECE_CSS . 'ece.min.css', __FILE__ ));
-	    wp_register_style( 'ece_effects_min', plugins_url( ECE_CSS . 'ece_effects.min.css', __FILE__ ));
-	    //wp_register_style( 'ece_effects_css', plugins_url( ECE_CSS . 'ece_effects.css', __FILE__ ));
-	    wp_enqueue_script( 'ece_js' );
-	    //wp_enqueue_script( 'ece_min_js' );
-		wp_enqueue_style( 'ece_css' );
-		wp_enqueue_style( 'ece_effects_css' );		
-		//wp_enqueue_style( 'ece_css_min' );
-		//wp_enqueue_style( 'ece_effects_min' );
+		wp_register_script( 'scrolldepth_js', plugins_url(  'inc/scrolldepth/jquery.scrolldepth.js', __FILE__ ), array('jquery'));
+		wp_register_script( 'scrolldepth_min_js', plugins_url( 'inc/scrolldepth/jquery.scrolldepth.min.js', __FILE__ ), array('jquery'));
+	    
+	    wp_enqueue_script( 'scrolldepth_js' );
+	    wp_enqueue_script( 'scrolldepth_min_js' );
 	}
 	public function ece_settings_link( $actions, $plugin_file ) {
 		static $plugin;
