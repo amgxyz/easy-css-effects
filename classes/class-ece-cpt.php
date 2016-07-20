@@ -10,8 +10,10 @@ public function __construct()
     //add_action( 'admin_menu', array( $this, 'add_trail_story_menu_page' ) );
     $trail_story_options = get_option( 'trail_story_option' );
   //  add_action( 'admin_init', array( $this, 'gsx_map_page' ) );
-    add_action( 'init', array($this, 'register_cpt_geocms_pro' ));
-    add_action( 'init', array($this, 'register_txn_geocms_pro' ));
+    //add_action( 'init', array($this, 'register_cpt_geocms_pro' ));
+    //add_action( 'init', array($this, 'register_txn_geocms_pro' ));
+    $this->register_cpt_geocms_pro();
+    $this->register_txn_geocms_pro();
 
 
 }
@@ -59,7 +61,7 @@ public function register_cpt_geocms_pro() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        //'rewrite' => true,
+        'rewrite' => true,
         'rewrite' => array('slug'=>'geopost'),
         'capability_type' => 'post'
     );
@@ -108,12 +110,8 @@ public function register_txn_geocms_pro() {
 
     register_taxonomy( 'geopost-category', array('geopost'), $args );
 
-   if (! has_term( 'geoposts', 'geopost-category' )) {
-        wp_insert_term( 'GeoPosts','geopost-category', array('GeoPosts', 'geoposts') );
-    }
-}
 
 }
 
-$post_type = new GsxPostType();
+}
 

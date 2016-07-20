@@ -1,48 +1,44 @@
 <?php
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
-interface i_SitSettings {
-    
-}
+
 /**
 * PLUGIN SETTINGS PAGE
 */
-class SitSettings {
+class EceSettings {
     /**
      * Holds the values to be used in the fields callbacks
      */
-    public $sit_settings;
+    public $ece_settings;
     /**
      * Start up
      */
-    public function __construct()
-    {
-        add_action( 'admin_menu', array( $this, 'add_sit_menu_page' ) );
+    public function __construct() {
+        add_action( 'admin_menu', array( $this, 'add_ece_menu_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
-
     }
     /**
      * Add options page
      */
-    public function add_sit_menu_page() {
+    public function add_ece_menu_page() {
       
        add_submenu_page(
             'tools.php',
-            'SEO Toolbox',
-            'SEO Toolbox',
+            'CSS Effects',
+            'CSS Effects',
             'manage_options',
-            'seo-image-tags',
-            array( $this, 'create_sit_menu_page' )//,
+            ECE_MENU,
+            array( $this, 'create_ece_menu_page' )//,
         );
     }
 
-    public function create_sit_menu_page() {
+    public function create_ece_menu_page() {
         // Set class property
-        $this->sit_settings = get_option( 'sit_settings' );
+        $this->ece_settings = get_option( 'ece_settings' );
         ?>
-        <div class="sit-wrap wrap">
+        <div class="ece-wrap wrap">
             <div>
-            <h1>SEO Image Toolbox</h1>
+            <h1></h1>
             <form method="post" action="options.php">
             <?php
 
@@ -50,8 +46,8 @@ class SitSettings {
                 // We pass it as a GET parameter.
                 // The target page will perform some action based on the 'do_something' parameter.
 
-                settings_fields( 'sit_settings_group' );
-                do_settings_sections( 'sit-options-admin' );
+                settings_fields( 'ece_settings_group' );
+                do_settings_sections( 'ece-options-admin' );
                 //submit_button('Save All Options');
             ?>
             </form>
@@ -68,24 +64,24 @@ class SitSettings {
     public function page_init() {
         //global $geo_mashup_options;
         register_setting(
-            'sit_settings_group', // Option group
-            'sit_settings', // Option name
+            'ece_settings_group', // Option group
+            'ece_settings', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
         add_settings_section(
-            'sit_settings_section', // ID
+            'ece_settings_section', // ID
             '', // Title
-            array( $this, 'sit_info' ), // Callback
-            'sit-options-admin' // Page
+            array( $this, 'ece_info' ), // Callback
+            'ece-options-admin' // Page
         );
 
         add_settings_section(
-            'sit_option', // ID
+            'ece_option', // ID
             '', // Title
-            array( $this, 'sit_option_callback' ), // Callback
-            'sit-options-admin', // Page
-            'sit_settings_section' // Section
+            array( $this, 'ece_option_callback' ), // Callback
+            'ece-options-admin', // Page
+            'ece_settings_section' // Section
         );
     
     }
@@ -96,16 +92,16 @@ class SitSettings {
      */
     public function sanitize( $input ) {
         $new_input = array();
-        if( isset( $input['sit_settings'] ) )
-            $new_input['sit_settings'] = absint( $input['sit_settings'] );
+        if( isset( $input['ece_settings'] ) )
+            $new_input['ece_settings'] = absint( $input['ece_settings'] );
         
         return $input;
     }
 
 
-    public function sit_info() {
+    public function ece_info() {
 
-        if ($this->sit_settings['update']) {
+        if ($this->ece_settings['update']) {
           
             $count = array();
             $count = batch_update_image_tags(true);
@@ -115,10 +111,10 @@ class SitSettings {
             foreach( $count as $key => $value ) { 
                echo '<strong>'.$key.':</strong>&nbsp;'.$value.'<br>';
             }
-            update_option($sit_settings['update'], '');
+            update_option($ece_settings['update'], '');
             echo '</p></div>';
 
-        } elseif ($this->sit_settings['delete']) {
+        } elseif ($this->ece_settings['delete']) {
             $count = array();
             $count = batch_update_image_tags(false);
              echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"><p>';
@@ -126,7 +122,7 @@ class SitSettings {
             foreach( $count as $key => $value ) { 
                echo '<strong>'.$key.':</strong>&nbsp;'.$value.'<br>';
             }
-            update_option($sit_settings['delete'], '');
+            update_option($ece_settings['delete'], '');
 
             echo '</p></div>';
 
@@ -140,16 +136,16 @@ class SitSettings {
     /**
      * Get the settings option array and print one of its values
      */
-    public function sit_option_callback() {
+    public function ece_option_callback() {
         //Get plugin options
         
-        global $sit_settings;
+        global $ece_settings;
         wp_enqueue_media();
         
         // Get trail story options
-        $sit_settings = (array) get_option( 'sit_settings' ); ?>
+        $ece_settings = (array) get_option( 'ece_settings' ); ?>
         
-            <div id="sit-settings" class="sit-settings plugin-info header">
+            <div id="ece-settings" class="ece-settings plugin-info header">
     
 
                 <table class="form-table">
@@ -161,12 +157,12 @@ class SitSettings {
                         <td>
                         <fieldset><?php $key = 'update'; ?>
                                 
-                            <input class="button button-primary" id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="submit" value="Update Tags"  />
+                            <input class="button button-primary" id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="submit" value="Update Tags"  />
                         
 
                             <?php $key = 'delete'; ?>
                             &nbsp;
-                            <input class="button-secondary delete" id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="submit" value="Delete Tags"  />
+                            <input class="button-secondary delete" id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="submit" value="Delete Tags"  />
                         
                                 </fieldset>
                             </td>
@@ -179,15 +175,15 @@ class SitSettings {
                             </th>
                             <td>
                                 <fieldset><?php $key = 'enable_seo_links'; ?>
-                                    <label for="sit_settings[<?php echo $key; ?>]">
-                                        <input id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $sit_settings[$key], true ); ?> />
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
                                         Open external links in new tab.
                                     </label>
                                 </fieldset>
                                 <fieldset><?php $key = 'enable_pdf_ext'; ?>
                                     
-                                    <label for="sit_settings[<?php echo $key; ?>]">
-                                        <input id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $sit_settings[$key], true ); ?> />
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
                                         Open internal PDFs in a new tab.
                                     </label>
 
@@ -205,8 +201,8 @@ class SitSettings {
                             <td>
                                 <fieldset><?php $key = 'disable_clientside_script'; ?>
                                     
-                                    <label for="sit_settings[<?php echo $key; ?>]">
-                                        <input id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $sit_settings[$key], true ); ?> />
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
                                         Disable all clientside plugin scripts.
                                     </label>
 
@@ -220,8 +216,8 @@ class SitSettings {
                             </th>
                             <td>
                                 <fieldset><?php $key = 'dab_af'; ?>
-                                    <label for="sit_settings[<?php echo $key; ?>]">
-                                        <input id='sit_settings[<?php echo $key; ?>]' name="sit_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $sit_settings[$key], true ); ?> />
+                                    <label for="ece_settings[<?php echo $key; ?>]">
+                                        <input id='ece_settings[<?php echo $key; ?>]' name="ece_settings[<?php echo $key; ?>]" type="checkbox" value="1" <?php checked(1, $ece_settings[$key], true ); ?> />
                                         Disable all forms and inputs autofilling/autocomplete ability.
                                     </label>
                                 </fieldset>
@@ -244,6 +240,6 @@ class SitSettings {
 }
 
 if( is_admin() )
-    $sit = new SitSettings();
+    $sit = new EceSettings();
 
 
