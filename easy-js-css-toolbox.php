@@ -46,7 +46,6 @@ class ECE_Toolbox {
 		global $poop;
 		$poop = 'hoop';
 
-		//include_once('abstract/interface-ece.php');
 		include_once('classes/class-ece-data.php');
 		include_once('classes/class-ece-settings.php');
 		include_once('classes/class-ece-cpt.php');
@@ -92,27 +91,21 @@ class ECE_Toolbox {
 			} else {
 				update_option( ECE_SETTINGS, array( 'init' => 'true' ) ); 
 			}
-
-			//delete_option( ECE_SETTINGS );
 		}
-		
-		var_dump($settings);
-
-
 	}
+
 	public function ece_flush_rewrite_rules() {
 		flush_rewrite_rules();
 	}
 
 	public function ece_register_cpt() {
-		$cpt = new GsxPostType();
+		$cpt = new ECE_Post_Type();
 		$this->ece_flush_rewrite_rules();
 	}
 
 	public function ece_notice() {
 		$settings = $this->ece_settings;
 		$init = $this->ece_init;
-
 
 		$class = 'notice notice-error';
 		$message = __( 'Irks! An error has occurred.', 'sample-text-domain' );
@@ -145,6 +138,7 @@ class ECE_Toolbox {
 		wp_enqueue_style( 'ece_effects_css' );
 		wp_enqueue_style( 'ece_effects_min' );		
 	}
+
 	public function ece_register_flexslider() {
 		wp_register_script( 'flexslider_js', plugins_url(  'inc/flexslider/jquery.flexslider.js', __FILE__ ), array('jquery'));
 		wp_register_script( 'flexslider_min_js', plugins_url( 'inc/flexslider/jquery.flexslider-min.js', __FILE__ ), array('jquery'));
@@ -159,6 +153,7 @@ class ECE_Toolbox {
 		wp_enqueue_style( 'flexslider_min_css' );		
 		wp_enqueue_style( 'flexslider_less' );		
 	}
+
 	public function ece_register_fontawesome() {
 		wp_register_style( 'fontawesome_scss', plugins_url( 'inc/fontawesome/scss/font-awesome.scss', __FILE__ ));
 	    wp_register_style( 'fontawesome_css', plugins_url( 'inc/fontawesome/css/font-awesome.css', __FILE__ ));
@@ -168,6 +163,7 @@ class ECE_Toolbox {
 		wp_enqueue_style( 'fontawesome_css' );		
 		wp_enqueue_style( 'fontawesome_min_css' );
 	}
+
 	public function ece_register_scrolldepth() {
 		wp_register_script( 'scrolldepth_js', plugins_url(  'inc/scrolldepth/jquery.scrolldepth.js', __FILE__ ), array('jquery'));
 		wp_register_script( 'scrolldepth_min_js', plugins_url( 'inc/scrolldepth/jquery.scrolldepth.min.js', __FILE__ ), array('jquery'));
@@ -179,7 +175,7 @@ class ECE_Toolbox {
 	public function ece_settings_link( $actions, $plugin_file ) {
 		static $plugin;
 
-		if ( !isset( $plugin ) )
+		if ( !isset( $plugin ) ) {
 			$plugin = plugin_basename(__FILE__);
 
 			if ($plugin == $plugin_file) {
@@ -192,6 +188,7 @@ class ECE_Toolbox {
 			}
 
 			return $actions;
+		}
 	}
 
 }

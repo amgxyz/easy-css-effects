@@ -19,7 +19,7 @@ class ECE_Script_Handler {
 		//add_action('wp_footer', array( $this,'ece_scripts' ),5 );
 		//add_action('wp_footer', array( $this,'ece_styles' ),5 );
 
-		var_dump($poop);
+		//var_dump($poop);
 	}
 	public function ece_scripts() { ?>
 
