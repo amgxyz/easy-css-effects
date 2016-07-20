@@ -13,6 +13,7 @@
 defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
 define( 'ECE_NAME', 'Easy CSS Effects' );
+define( 'ECE_BASENAME', plugin_basename(__FILE__) );
 define( 'ECE_URL', plugins_url( __FILE__ ) );
 define( 'ECE_DIR', plugins_url( __DIR__ ));
 define( 'ECE_CLASS', __CLASS__ );
@@ -30,7 +31,7 @@ define( 'ECE_CSS', 'inc/css/' );
 
 
 
-class Easy_CSS_Effects {
+class ECE_Toolbox {
 
 
 	private $var = '';
@@ -40,30 +41,33 @@ class Easy_CSS_Effects {
 	public function __construct() {
 		global $poop;
 		$poop = 'hoop';
+		include_once('classes/class-ece-data.php');
+		include_once('classes/class-ece-settings.php');
+		include_once('classes/class-ece-cpt.php');
+		include_once('classes/class-ece-scripts.php');
+		include_once('classes/class-ece-reset.php');
+
+		include_once('abstract/abstract-ece.php');
 
 		register_activation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ));
 		register_deactivation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ) );
-		add_action( 'init', array( $this, 'ece_init' ) );
-		add_action( 'admin_init', array( $this, 'ece_admin_init' ) );
-		add_action( 'init', array( $this, 'ece_register_cpt' ) );
 
+		add_action( 'admin_init', array( $this, 'ece_admin_init' ) );
+
+		add_action( 'init', array( $this, 'ece_init' ) );
+		add_action( 'init', array( $this, 'ece_register_cpt' ) );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_flexslider' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_fontawesome' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_scrolldepth' ) );
-		/*add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'ece_register_includes' ) );*/
+
 		add_filter( 'plugin_action_links', array( $this, 'ece_settings_link' ), 10, 5 );
 
 		$this->ece_settings = get_option( ECE_SETTINGS );
 		$this->ece_init = $this->ece_settings['init'];
 
-		include_once('classes/class-ece-settings.php');
-		include_once('classes/class-ece-scripts.php');
-		include_once('abstract/abstract-ece.php');
-		include_once('classes/class-ece-cpt.php');
+		i
 	}
 	 public function ece_init() {
 		global $poop;
@@ -111,8 +115,6 @@ class Easy_CSS_Effects {
 		$message = __( 'Irks! An error has occurred.', 'sample-text-domain' );
 
 		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
-
-	
 	}
 
 	public function ece_register_includes() {
@@ -170,17 +172,19 @@ class Easy_CSS_Effects {
 	    wp_enqueue_script( 'scrolldepth_js' );
 	    wp_enqueue_script( 'scrolldepth_min_js' );
 	}
+
 	public function ece_settings_link( $actions, $plugin_file ) {
 		static $plugin;
 
-		if (!isset($plugin))
+		if ( !isset( $plugin ) )
 			$plugin = plugin_basename(__FILE__);
 
 			if ($plugin == $plugin_file) {
 
-	
-				$settings = array('settings' => '<a href="tools.php?page='.ECE_MENU.'">' . __('Settings', 'General') . '</a>',
-					'support' => '<a target="_blank" href="'.ECE_AMG.'">' . __('Support', 'General') . '</a>');
+				$settings = array(
+							'settings' => '<a href="tools.php?page='.ECE_MENU.'">' . __('Settings', 'General') . '</a>',
+							'support' => '<a target="_blank" href="'.ECE_AMG.'">' . __('Support', 'General') . '</a>'
+							);
 	    			$actions = array_merge($settings, $actions);
 			}
 
@@ -189,5 +193,5 @@ class Easy_CSS_Effects {
 
 }
 
-$ece = new Easy_CSS_Effects();
+$ece = new ECE_Toolbox();
 //$ece->ece_init();

@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 /**
 * PLUGIN SETTINGS PAGE
 */
-class EceSettings {
+class ECE_Settings {
     /**
      * Holds the values to be used in the fields callbacks
      */
@@ -240,6 +240,6 @@ class EceSettings {
 }
 
 if( is_admin() )
-    $sit = new EceSettings();
+    $sit = new ECE_Settings();
 
 
