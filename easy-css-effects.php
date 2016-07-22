@@ -37,7 +37,7 @@ class ECE_Toolbox {
 
 	public function __construct() {
 
-		include_once('classes/class-ece-scritps.php');
+		//include_once('classes/class-ece-scritps.php');
 		include_once('classes/class-ece-shortcodes.php');
 
 		register_activation_hook( __FILE__, array( $this, 'ece_flush_rewrite_rules' ));

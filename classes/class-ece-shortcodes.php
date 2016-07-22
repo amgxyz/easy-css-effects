@@ -24,14 +24,14 @@ your theme's stylesheet content.
 
 	private $tag = '';
 	private $tag_id = '';
-	private $tag_class = ';'
+	private $tag_class = '';
 	private $tag_str = '';
 	private $effect_arr = array();
 	private $tag_arr = array();
 	private $param_arr = array(); 
 	private $shortcodes = array();
 	private $elements = array();
-	private $elem_arr = array('a','area','article','aside','body','blockquote','button','caption','code','div','dl','dt','embed','fieldset','figure','form','frame','framset','head','header','iframe','img','input','label','optgroup','option','p','pre','section','span','strong','sub','sup','table','tbody','td','th','tr','textare','ul','li')
+	private $elem_arr = array('a','area','article','aside','body','blockquote','button','caption','code','div','dl','dt','embed','fieldset','figure','form','frame','framset','head','header','iframe','img','input','label','optgroup','option','p','pre','section','span','strong','sub','sup','table','tbody','td','th','tr','textare','ul','li');
 	private $class_arr = array(
 				'spin90-right', 'spin180-right', 'spin540-right' , 'spin900-right' , 'spin360-right' ,
 				 'spin90-left' , 'spin180-left' , 'spin540-left' , 'spin900-left' , 'spin360-left' ,
@@ -63,13 +63,13 @@ your theme's stylesheet content.
 	        'id' =>  $this->tag_id,
 	        'alt' =>  $this->tag_id,
 	        'type' => 'text',
-	        'height' => 150,
-	        'action' => 'POST'
-	        'width' => 150,
-	        'style' => 'margin:0 auto;'
+	        'height' => '150',
+	        'action' => 'POST',
+	        'width' => '150',
+	        'style' => 'margin:0 auto;',
 	        'attr' => ' title="'.$this->tag_id.$sp.
 	        				'id="'.$this->tag_id.'"'.$sp.
-	        				'name="'.$this->tag_id.'"'.$sp.
+	        				'name="'.$this->tag_id.'"'.$sp
 	        				//'class="spin360"'.$sp;
 	    ), $atts );
 
