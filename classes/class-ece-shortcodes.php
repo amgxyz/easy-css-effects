@@ -25,7 +25,7 @@ your theme's stylesheet content.
 	private $tag = '';
 
 	private $tag_id = '';
-	
+
 	private $tag_class = '';
 
 	private $tag_str = '';
@@ -118,8 +118,56 @@ your theme's stylesheet content.
 	
 	}
 
+	public function ece_params_shortcode( $atts, $content = null ) {
 
-	public function ece_parse_params_shortcode( $tag, $params ) {
+		$content = 'HTML elements you want effect applied to.';
+		$sp = ' ';
+		$ds = '-';
+	    $this->tag_id = esc_attr( 'ece_'.date("YmdHis") );
+
+
+	    $this->params = shortcode_atts( array(
+	        'element' => 'div',
+	        'class' => 'spin360',
+	        'direction' => 'right',
+	        'href' => '#',
+	        'title' => $this->tag_id,
+	        'src' => 'http://placehold.it/350x150',
+	        'value' =>  $this->tag_id,
+	        'name' =>  $this->tag_id,
+	        'id' =>  $this->tag_id,
+	        'alt' =>  $this->tag_id,
+	        'type' => 'text',
+	        'height' => '150',
+	        'action' => 'POST',
+	        'width' => '150',
+	        'style' => 'margin:0 auto;'
+	        				//'class="spin360"'.$sp;
+	    ), $atts );
+
+
+	    $style_attr = esc_attr( $params['style'] );
+	    $style_url = esc_url( $style_attr );
+	    $style_html = esc_html( $style_url );
+	    $this->params['style'] = $style_html;
+
+
+
+	    if ( $this->params['element'] !== null &&
+	    	 $this->params['element'] !== false && $this->params['element'] !== false ) {
+	    	$str = $this->ece_parse_params_shortcode( $this->params['element'], $this->params );
+		}
+
+		var_dump($this->params);
+		var_dump($str);
+
+		$shortcode = $this->str;
+		return $shortcode;
+	
+	}
+
+
+	public function ece_parse_wrap_shortcode( $tag, $params ) {
 
 		if ( $tag !== null && $tag !== false && $tag !== false ) {
 
