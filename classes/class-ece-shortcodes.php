@@ -45,6 +45,7 @@ your theme's stylesheet content.
 
 		$content = 'HTML elements you want effect applied to.';
 		$sp = ' ';
+		$ds = '-';
 	    $this->tag_id = esc_attr( 'ece_'.date("YmdHis") );
 
 
@@ -59,84 +60,88 @@ your theme's stylesheet content.
 	        'name' =>  $this->tag_id,
 	        'id' =>  $this->tag_id,
 	        'alt' =>  $this->tag_id,
+	        'type' => 'text',
 	        'height' => 150,
 	        'action' => 'POST'
 	        'width' => 150,
 	        'style' => 'margin:0 auto;'
-	        'attr_arr' => ' title="'.$this->tag_id.$sp.
+	        'attr' => ' title="'.$this->tag_id.$sp.
 	        				'id="'.$this->tag_id.'"'.$sp.
 	        				'name="'.$this->tag_id.'"'.$sp.
 	        				'class="' .$effect.'"'.$sp;
 	    ), $atts );
 
 	    $this->tag = esc_attr( $params['element'] );
-	    $this->tag_class = esc_attr( $params['class'] );
 
-
+	    if ( esc_attr( $params['direction'] ) !== null ){ 
+	    	$this->tag_class = esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] );
+	    } else {
+	    	$this->tag_class = esc_attr( $params['class'] )
+	    }
 	    
+	    $attr_attr = esc_attr( $params['attr'] );
+	    $attr_html = esc_html( $attr_attr );
+	    $attr_url = esc_url( $attr_html );
+
+	    $style_attr = esc_attr( $params['style'] );
+	    $style_url = esc_url( $style_attr );
+	    $style_html = esc_html( $style_url );
 
 	    if ( $tag === 'img' ) {
+
 	    	$img_raw = esc_attr( $params['src'] );
 	    	$img_url = esc_url( $img_raw );
 
 	    	$this->str = '<'. $this->tag.$sp.
-    					'id="'. $this->tag_id .'"'.$sp.
-				    	'class="' . $this->tag_class . '"'.$sp.
-				    	'src="'.$img_url.'"'.$sp.
-				    	'height="'.esc_attr( $params['height'] ).'"'.$sp
-				    	'height="'.esc_attr( $params['width'] ).'"'.$sp
+    					$attr_url.$sp.
 				    	'alt="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['alt'] ).'"'.$sp.
-				    	'height="'.esc_attr( $params['height'] ).'"'.$sp
-				    	'height="'.esc_attr( $params['height'] ).'"'.$sp
-				    	'height="'.esc_attr( $params['height'] ).'"'.$sp
-				    	 ' />'.
+				    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
+				    	'height="'.esc_attr( $params['height'] ).'"'.$sp.
+				    	'width="'.esc_attr( $params['width'] ).'"'.$sp.
+				    	'href="'.esc_attr( $params['href'] ).'"'.$sp.
+				    	'style="'.$style_html.'"'.$sp.'>'.
+				    	$content.
+				    	'</'. $tag .'>';
 
 	    } elseif ( $tag === 'a' ) {
 
-	    }
-	    } elseif ( $tag === 'a' ) {
+	    	$href_attr = esc_attr( $params['href'] );
+	    	$href_url esc_url( $href_attr );
 
-	    }
-	    } elseif ( $tag === 'a' ) {
+	    	$this->str = '<'. $this->tag.$sp.
+    					$attr_url.$sp.
+				    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
+				    	'href="'.$href_url.'"'.$sp.
+				    	'style="'.$style_html.'"'.$sp.'>'.
+				    	$content.
+				    	'</'. $tag .'>';
+	    
+	    } elseif ( $tag === 'form' ) {
+	    	$this->str = '<'. $this->tag.$sp.
+	    				$attr_url.$sp.
+				    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
+				    	'action="'.esc_attr( $params['action'] ).'"'.$sp.
+				    	'style="'.$style_html.'"'.$sp.'>'.
+				    	$content.
+				    	'</'. $tag .'>';
+	    
+	    } elseif ( $tag === 'input' ) {
 
-	    }
-	    } elseif ( $tag === 'a' ) {
+    		$this->str = '<'. $this->tag.$sp.
+    					$attr_url.$sp.
+				    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
+				    	'type="'.esc_attr( $params['type'] ).'"'.$sp.
+				    	'style="'.$style_html.'"'.$sp.
+				    	 '/>';
+	    } else {
 
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-	    } elseif ( $tag === 'a' ) {
-
-	    }
-
-    	$this->str = '<'. $this->tag . ' 
-    					id="'. $this->tag_id .'" 
-				    	class="' . $this->tag_class . '" >'.
-				    	$content
-				    	.'</'. $this->tag .'>';
+    		$this->str = '<'. $this->tag.$sp.
+    					$attr_url.$sp.
+				    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
+				    	'style="'.$style_html.'"'.$sp.'>'.
+				    	$content.
+				    	'</'. $tag .'>';
+		}
 
 		$shortcode = $this->str;
 
@@ -156,6 +161,11 @@ your theme's stylesheet content.
 				    	class="' . $tag_class . '" >'.
 				    	$content
 				    	.'</'. $tag .'>';
+
+		if ( is_array($this->elem_arr) &&
+			 $this->elem_arr !== null && $this->elem_arr !== '') {
+			
+		}
 
 		if ( is_array($this->class_arr) &&
 			 $this->class_arr !== null && $this->class_arr !== '') {
@@ -177,7 +187,6 @@ your theme's stylesheet content.
 				}
 				
 				array_push( $this->tag_arr, array( $effect, $direction ) );
-
 
 			}
 			
