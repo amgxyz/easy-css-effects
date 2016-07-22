@@ -23,39 +23,53 @@ your theme's stylesheet content.
 */
 
 	private $tag = '';
+
 	private $tag_id = '';
+	
 	private $tag_class = '';
+
 	private $tag_str = '';
+
 	private $effect_arr = array();
+
 	private $tag_arr = array();
+
 	private $param_arr = array(); 
+
 	private $shortcodes = array();
+
 	private $params = array();
+
 	private $elements = array();
+
 	private $obj_arr = array();
-	private $elem_arr = array('a','area','article','aside','body','blockquote','button','caption','code','div','dl','dt','embed','fieldset','figure','form','frame','framset','head','header','iframe','img','input','label','optgroup','option','p','pre','section','span','strong','sub','sup','table','tbody','td','th','tr','textare','ul','li');
+
+	private $elem_arr = array(
+						'a','area','article','aside','body','blockquote',
+						'button','caption','code','div','dl','dt','embed',
+						'fieldset','figure','form','frame','framset','head',
+						'header','iframe','img','input','label','optgroup',
+						'option','p','pre','section','span','strong','sub',
+						'sup','table','tbody','td','th','tr','textare','ul','li');
+
 	private $class_arr = array(
-				'spin90-right', 'spin180-right', 'spin540-right' , 'spin900-right' , 'spin360-right' ,
-				 'spin90-left' , 'spin180-left' , 'spin540-left' , 'spin900-left' , 'spin360-left' ,
-				  'shimmy' , 'slide-right' , 'slide-up' , 'slide-down' , 'slide-left' , 'skew');
+				'spin90-right', 'spin180-right', 
+				'spin540-right' , 'spin900-right' , 
+				'spin360-right' ,'spin90-left' , 
+				'spin180-left' , 'spin540-left' , 
+				'spin900-left' , 'spin360-left' ,
+				  'shimmy' , 'slide-right' , 
+				  'slide-up' , 'slide-down' , 
+				  'slide-left' , 'skew');
 	
 
 
 	public function __construct() {
 
 		add_shortcode( 'css_effect', array( $this, 'ece_params_shortcode' ) );
-
-		$this->ece_params_shortcode(null);
-		$objects = $this->ece_get_class_array();
-		var_dump($objects);
-		foreach($objects as $obj) {
-			add_shortcode( $obj, array( $this, 'ece_class_shortcode' ) );
-			array_push($this->effect_arr, $obj);
-		}
-
-		var_dump($this->effect_arr);
 	
 	}
+
 	public function ece_params_shortcode( $atts, $content = null ) {
 
 		$content = 'HTML elements you want effect applied to.';
@@ -104,86 +118,6 @@ your theme's stylesheet content.
 	
 	}
 
-	public function ece_element_builder() {
-		$sp = ' ';
-		$ds = '-';
-		$us = '_';
-		$elements = $this->elem_arr;
-		$classes = $this->class_arr;
-		$shortcode = "";
-
-		foreach( $elements as $elem ) {
-			//$tag = $elem;
-
-			foreach( $classes as $class ) {
-				$class_dir = explode( '-', $class );
-
-				if ( $class_dir[0] !== null && $class_dir[0] !== '' ) {
-					$shortcode = $elem.$us.$class_dir[0];
-
-					if ( $class_dir[1] !== null && $class_dir[1] !== '' && $class_dir[1] !== false ) {
-						$shortcode = $elem.$us.$class_dir[0].$us.$class_dir[1];
-					}
-					$this->ece_parse_params_shortcode( $elem,  )
-				}
-
-				array_push($this->obj_arr, array('tag'=>$class_dir[0],'shortcode'=>$shortcode);
-				$shortcode = '';
-			}
-		}
-
-		return $this->obj_arr;
-	}
-
-	public function ece_class_shortcode( $atts ) {
-		$sp = ' ';
-		$ds = '-';
-		$us = '_';
-		$elements = $this->elem_arr;
-		$classes = $this->class_arr;
-		$shortcode = "";
-		$arr = array();
-
-		$this->params = shortcode_atts( array(
-	        'element' => 'div',
-	        'class' => 'spin360',
-	        'direction' => 'right',
-	        'href' => '#',
-	        'title' => $this->tag_id,
-	        'src' => 'http://placehold.it/350x150',
-	        'value' =>  $this->tag_id,
-	        'name' =>  $this->tag_id,
-	        'id' =>  $this->tag_id,
-	        'alt' =>  $this->tag_id,
-	        'type' => 'text',
-	        'height' => '150',
-	        'action' => 'POST',
-	        'width' => '150',
-	        'style' => 'margin:0 auto;'
-	        				//'class="spin360"'.$sp;
-	    ), $atts );
-
-		$arr_var = $this->ece_element_builder();
-
-		foreach ( $arr_var as $var ) {
-			return $shortcode;
-		}
-	}
-
-	public function ece_set_class_array($arr) {
-
-		if ($arr !== null & $arr !== '' && $arr !== false) {
-			$this->obj_arr = $arr;
-		} else {
-
-			$this->obj_arr = null;
-		}
-	}
-
-	public function ece_get_class_array( ) {
-
-		return $this->obj_arr;
-	}
 
 	public function ece_parse_params_shortcode( $tag, $params ) {
 
