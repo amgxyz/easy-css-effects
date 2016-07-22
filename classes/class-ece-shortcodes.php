@@ -114,7 +114,7 @@ your theme's stylesheet content.
 
 		$shortcode = $this->str;
 		return $shortcode;
-
+}
 
 	public function ece_parse_shortcode( $tag, $params ) {
 
