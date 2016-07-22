@@ -1,164 +1,242 @@
-/** ADMIN PAGE STYLES  **/
-.icon-header-post-type-title,
-.icon-header-image-title,
-.icon-post-type,
-.icon-image-buttons {
-    width:50%;
-    display:block;
-    float:left;
-}
-.trail-story-icon-button-container,
-.trail-story-icon-image-container {
-    position:relative;
-    width:70%;
-    display:block;
-    float:left;
-}
-.trail-story-icon-button-container {
-    width:30%;
-}
+/*
+Welcome to Custom CSS!
 
-/*.gm-legend-title,
-#gm-trail-conditions-check-all,
-#gm-itinerary-category-check-all,
-.gm-legend .symbol,
-#gm-trail-story-category-check-all {
-	display: none !important;
-	
-}*/
+CSS (Cascading Style Sheets) is a kind of code that tells the browser how
+to render a web page. You may delete these comments and get started with
+your customizations.
 
-.gm-legend input {
-	margin: 0 10px 0 0 !important;
-
-}
-.gm-map iframe {
-	margin: 0;
+By default, your stylesheet will be loaded after the theme stylesheets,
+which means that your rules can take precedence and override the theme CSS
+rules. Just write here what you want to change, you don't need to copy all
+your theme's stylesheet content.
+*/
+.spin90-right {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-
-.plugin-info.content h4 {
-    margin:10px 0;
+.spin90-right:hover {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.spin180-right {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#geo-mashup-inline-help-link-wrap {
-    display: inline;
-    float: right;
+.spin180-right:hover {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.spin540-right{
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#trail-story-post #geo_mashup_location_editor label,
-#trail-story-post #geo_mashup_location_editor #geo_mashup_search {
-    /*display: none !important;*/
+.spin540-right:hover {
+    -webkit-transform: rotate(540deg);
+    -moz-transform: rotate(540deg);
+    -ms-transform: rotate(540deg);
+    -o-transform: rotate(540deg);
+    transform: rotate(540deg);
+}
+.spin900-right {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#trail-story-post #geo_mashup_location_editor select {
-    margin:10px 0;
+.spin900-right:hover {
+    -webkit-transform: rotate(900deg);
+    -moz-transform: rotate(900deg);
+    -ms-transform: rotate(900deg);
+    -o-transform: rotate(900deg);
+    transform: rotate(900deg);
 }
 
-.admin-map-label {
-    font-weight: 600;
+.spin360-right {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#trail-story-post #geo-mashup-location-table {
-    display: none !important;
+.spin360-right:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.spin90-left {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-
-#trail-story-post #geo-mashup-inline-help-link,
-#trail-story-post #geo_mashup_add_location {
-    margin:35px 0 0 0;
-    display: block;
+.spin90-left:hover {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.spin180-left {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#geo-mashup-inline-help-link-wrap {
-    display: none;
-    float: left;
+.spin180-left:hover {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+.spin540-left{
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#trail-story-post #geo_mashup_add_location  {
-    float:right !important;
+.spin540-left:hover {
+    -webkit-transform: rotate(-540deg);
+    -moz-transform: rotate(-540deg);
+    -ms-transform: rotate(-540deg);
+    -o-transform: rotate(-540deg);
+    transform: rotate(-540deg);
+}
+.spin900-left {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-#trail-story-post fieldset {
-    margin:0;
-    padding:0;
-    border:none !important;
-}
-#trail-story-post {
-    max-width: 100%;
-    width:100%;
-}
-#trail-story-post input[type="text"] {
-    max-width:500px;
-    width: 100%;
-}
-@media only screen and (max-width: 1024px) {
-    #ui-datepicker-div {
-        /*display: none !important;*/
-    }
-}
-/*.ml-responsive-table.ml-responsive-table-0 {
-
-.locationinfo.post-location-info .gm-style img {
-    display: block;
-    margin: 0 auto;
-    max-width: 200px !important;
-    width: 100% !important;
-    height: auto !important;
+.spin900-left:hover {
+    -webkit-transform: rotate(-900deg);
+    -moz-transform: rotate(-900deg);
+    -ms-transform: rotate(-900deg);
+    -o-transform: rotate(-900deg);
+    transform: rotate(-900deg);
 }
 
-.gm-legend-title {
-    display: none !important;
+.spin360-left {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-/*.wp-menu-open.menu-top.menu-icon-itinerary .wp-submenu.wp-submenu-wrap {
-    border-bottom: 3px inset #4DB270 !important;
-}*/
-/*#adminmenu > li > .menu-top.menu-icon-trail-route,
-#adminmenu > li > .menu-top.menu-icon-trail-story,
-#adminmenu > li > .menu-top.menu-icon-trail-condition {
-    border-left: 3px dotted #727171;
-    border-right: 3px dotted #727171;
-}*/
-
-/* We use this media query to add styles to any device that supports media queries */
-@media only screen {
-
+.spin360-left:hover {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
 }
 
-/**
- * Foundation: XLarge.
- * Min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues 
- */
-@media only screen and (max-width: 120em) {
- 
+.shimmy {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-/**
- * Foundation: Large.
- * Min-width 1025px and max-width 1440px, use when QAing large screen-only issues
- */
-@media only screen and (max-width: 90em) { 
- 
+.shimmy:hover {
+    -webkit-transform: translate(0px,10px);
+    -moz-transform: translate(0px,-10px);
+    -ms-transform: translate(0px,-10px);
+    -o-transform: translate(0px,10px);
+    transform: translate(0px,-10px);
 }
 
-/**
- * Foundation: Medium.
- * Min-width 641px and max-width 1024px, use when QAing tablet-only issues
- */
-@media only screen and (max-width: 64em) {
-    
+.slide-right {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
-/**
- * Foundation: Small.
- * Max-width 640px, mobile-only styles, use when QAing mobile issues
- */
-@media only screen and (max-width: 40em) {
-    .gm-map iframe {
-        height:400px !important;
-    }
 
-    /*.ml-responsive-table.ml-responsive-table-0 {
-        display: none;
-    }*/
-    
+.slide-right:hover {
+    -webkit-transform: translate(75px,0px);
+    -moz-transform: translate(75px,0px);
+    -ms-transform: translate(75px,0px);
+    -o-transform: translate(75px,0px);
+    transform: translate(75px,0px);
+}
+
+.slide-up {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+.slide-up:hover {
+    -webkit-transform: translate(0px,-50px);
+    -moz-transform: translate(0px,-50px);
+    -ms-transform: translate(0px,-50px);
+    -o-transform: translate(0px,-50px);
+    transform: translate(0px,-50px);
+}
+
+.slide-left {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+.slide-left:hover {
+    -webkit-transform: translate(-75px,0px);
+    -moz-transform: translate(-75px,0px);
+    -ms-transform: translate(-75px,0px);
+    -o-transform: translate(-75px,0px);
+    transform: translate(-75px,0px);
+}
+
+.skew {
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+.skew:hover {
+    -webkit-transform: skew(30deg,20deg);
+    -moz-transform: skew(30deg,20deg);
+    -ms-transform: skew(30deg,20deg);
+    -o-transform: skew(30deg,20deg);
+    transform: skew(30deg,20deg);
 }

@@ -1,8 +1,8 @@
-=== SEO Image Toolbox ===
+=== Easy CSS Effects ===
 
 Contributors: amg26, amgxyz
 
-Tags: seo images, seo, optimize images, image seo, image tags, alt tags, media, search engine optimization, seo links, seo friendly, seo friendly links, seo toolbox, seo
+Tags: css, easy css, css effects, easy css effects, css3, css3 effects, transitions, transform, css transform, css3 transform, css3 styles
 
 Donate link: andrewmgunn.com/donate
 
@@ -18,21 +18,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 
-Improve your site's SEO with the best solution for completely Search Engine Optimizing images and dynamically fixing HTML validation errors.
+Easily apply CSS3 styles, hover effects, transitions and tranforms with applying classes to elements.
 
 
 
 == Description ==
 
-The best solution for completely Search Engine Optimizing images and dynamically fixing HTML validation errors, for websites on the WordPress platform.
-
-
-
-SEO Image Tags puts an end to ever have to worry about getting HTML validation errors for images and improves your SEO score by completely optimizing image data. Alt tags are dynamically generated and saved to the database automatically any time an image is uploaded, no configuration or headache.
-
-
-
-You can run the database updater to create, update, or delete image tag data for all images in the media library. All with a lightweight and efficient clientside script to EVERY image is properly tagged.
+Easily apply CSS3 styles, hover effects, transitions and tranforms with applying classes to elements.
 
 
 
