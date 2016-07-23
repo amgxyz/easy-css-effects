@@ -110,8 +110,8 @@ your theme's stylesheet content.
 	    	$str = $this->ece_parse_shortcode( $this->params['element'], $this->params );
 		}
 
-		var_dump($this->params);
-		var_dump($str);
+		//var_dump($this->params);
+		//var_dump($str);
 
 		$shortcode = $this->str;
 		return $shortcode;
