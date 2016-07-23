@@ -52,14 +52,9 @@ class ECE_Toolbox {
 	}
 
 	public function ece_register_includes() {
-		wp_register_script( 'ece_js', plugins_url( ECE_JS . 'ece.js', __FILE__ ), array('jquery'));
-		wp_register_script( 'ece_min_js', plugins_url( ECE_JS . 'ece.min.js', __FILE__ ), array('jquery'));
 	    wp_register_style( 'ece_css', plugins_url( ECE_CSS . 'ece.css', __FILE__ ));
 	    wp_register_style( 'ece_css_min', plugins_url( ECE_CSS . 'ece.min.css', __FILE__ ));	 
-
-	    wp_enqueue_script( 'ece_js' );
-	    wp_enqueue_script( 'ece_min_js' );
-		wp_enqueue_style( 'ece_css' );
+		//wp_enqueue_style( 'ece_css' );
 		wp_enqueue_style( 'ece_css_min' );	
 	}
 

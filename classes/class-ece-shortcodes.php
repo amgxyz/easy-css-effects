@@ -92,7 +92,8 @@ your theme's stylesheet content.
 	        'height' => '150',
 	        'action' => 'POST',
 	        'width' => '150',
-	        'style' => 'margin:0 auto;'
+	        'style' => 'margin:0 auto;',
+	        'wrap' => 'true'
 	        				//'class="spin360"'.$sp;
 	    ), $atts );
 
@@ -122,6 +123,11 @@ your theme's stylesheet content.
 
 			$sp = ' ';
 			$ds = '-';
+		if ( $params['wrap'] === true || $tag == 'true' && $tag == true ) {
+			$wrap = 'wrap-';
+		} else {
+			$wrap = '';
+		}
 
 			if ( $tag === 'img' ) {
 
@@ -131,7 +137,7 @@ your theme's stylesheet content.
 		    	$this->str = '<'. $tag.$sp.
 		    				'id="'. esc_attr( $params['id'] ). '"'.$sp.
 		    				'name="'. esc_attr( $params['id'] ). '"'.$sp.
-		    				'class="'.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
+		    				'class="'.$wrap.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
 		    				'src="'.esc_attr( $params['src'] ).'"'.$sp.
 					    	'alt="'.esc_attr( $params['alt'] ).'"'.$sp.
 					    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
@@ -150,7 +156,7 @@ your theme's stylesheet content.
 		    	$this->str = '<'. $this->tag.$sp.
 		    				'id="'. esc_attr( $params['id'] ). '"'.$sp.
 		    				'name="'. esc_attr( $params['id'] ). '"'.$sp.
-		    				'class="'.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
+		    				'class="'.$wrap.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
 					    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
 					    	'href="'.$href_url.'"'.$sp.
 					    	'style="'.$style_html.'"'.$sp.'>'.
@@ -161,7 +167,7 @@ your theme's stylesheet content.
 		    	$this->str = '<'. $this->tag.$sp.
 		    				'id="'. esc_attr( $params['id'] ). '"'.$sp.
 		    				'name="'. esc_attr( $params['id'] ). '"'.$sp.
-		    				'class="'.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
+		    				'class="'.$wrap.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
 					    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
 					    	'action="'.esc_attr( $params['action'] ).'"'.$sp.
 					    	'style="'.$style_html.'"'.$sp.'>'.
@@ -173,7 +179,7 @@ your theme's stylesheet content.
 	    		$this->str = '<'. $this->tag.$sp.
 		    				'id="'. esc_attr( $params['id'] ). '"'.$sp.
 		    				'name="'. esc_attr( $params['id'] ). '"'.$sp.
-		    				'class="'.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
+		    				'class="'.$wrap.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
 					    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
 					    	'type="'.esc_attr( $params['type'] ).'"'.$sp.
 					    	'style="'.$style_html.'"'.$sp.
@@ -183,7 +189,7 @@ your theme's stylesheet content.
 	    		$this->str = '<'. $this->tag.$sp.
 		    				'id="'. esc_attr( $params['id'] ). '"'.$sp.
 		    				'name="'. esc_attr( $params['id'] ). '"'.$sp.
-		    				'class="'.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
+		    				'class="'.$wrap.esc_attr( $params['class'] ).$ds.esc_attr( $params['direction'] ).'"'.$sp.
 					    	'value="'.esc_attr( $params['value'] ).'"'.$sp.
 					    	'style="'.$style_html.'"'.$sp.'>'.
 					    	$content.
