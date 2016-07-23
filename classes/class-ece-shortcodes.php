@@ -92,8 +92,8 @@ your theme's stylesheet content.
 	        'height' => '150',
 	        'action' => 'POST',
 	        'width' => '150',
-	        'style' => 'margin:0 auto;',
-	        'wrap' => 'true'
+	        'style' => 'margin:0 auto;'//,
+	        //'wrap' => 'true'
 	        				//'class="spin360"'.$sp;
 	    ), $atts );
 
@@ -123,11 +123,11 @@ your theme's stylesheet content.
 
 			$sp = ' ';
 			$ds = '-';
-		if ( $params['wrap'] === true || $tag == 'true' && $tag == true ) {
-			$wrap = 'wrap-';
-		} else {
+		//if ( $params['wrap'] === true || $tag == 'true' && $tag == true ) {
+		//	$wrap = 'wrap-';
+		//} else {
 			$wrap = '';
-		}
+		//}
 
 			if ( $tag === 'img' ) {
 
