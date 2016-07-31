@@ -53,9 +53,19 @@ class ECE_Toolbox {
 
 	public function ece_register_includes() {
 	    wp_register_style( 'ece_css', plugins_url( ECE_CSS . 'ece.css', __FILE__ ));
-	    wp_register_style( 'ece_css_min', plugins_url( ECE_CSS . 'ece.min.css', __FILE__ ));	 
+	    wp_register_style( 'ece_css_min', plugins_url( ECE_CSS . 'ece.min.css', __FILE__ ));
+	    wp_register_style( 'ani_css', plugins_url( ECE_CSS . 'animate.css', __FILE__ ));
+	    wp_register_style( 'ani_min_css', plugins_url( ECE_CSS . 'animate.min.css', __FILE__ ));
+	    wp_register_style( 'ih_css', plugins_url( ECE_CSS . 'imagehover.css', __FILE__ ));
+	    wp_register_style( 'ih_min_css', plugins_url( ECE_CSS . 'imagehover.min.css', __FILE__ ));
+
 		//wp_enqueue_style( 'ece_css' );
-		wp_enqueue_style( 'ece_css_min' );	
+		wp_enqueue_style( 'ece_css_min' );
+		//wp_enqueue_style( 'ece_css' );
+		wp_enqueue_style( 'ani_min_css' );
+		//wp_enqueue_style( 'ece_css' );
+		wp_enqueue_style( 'ih_min_css' );
+
 	}
 
 }
